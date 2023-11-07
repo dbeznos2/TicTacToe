@@ -9,6 +9,7 @@ public class Main { // Define a class named "TicTacToe."
         printBoard(board);
         int moves = 0;
 
+
     }
 
     public static void initializeBoard(char[][] board) {
@@ -67,9 +68,19 @@ public class Main { // Define a class named "TicTacToe."
                 return true;
             }
         }
-        return false;
+
+        // Check for diagonal wins
+        if (board[0][0] == player && board[1][1] == player && board[2][2] == player) {
+            return true; // Diagonal win (top-left to bottom-right)
+        }
+        if (board[0][2] == player && board[1][1] == player && board[2][0] == player) {
+            return true; // Diagonal win (top-right to bottom-left)
+        }
+
+        return false; // No win
     }
 }
+
 
 
 
