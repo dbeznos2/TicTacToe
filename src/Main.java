@@ -29,6 +29,7 @@ public class Main { // Define a class named "TicTacToe."
             System.out.println("\n-------------");
         }
     }
+
     public static int getPlayerMove(char[][] board, char currentPlayer) {
         Scanner scanner = new Scanner(System.in);
         int move;
@@ -52,8 +53,24 @@ public class Main { // Define a class named "TicTacToe."
         return move;
     }
 
+    public static boolean checkWin(char[][] board, char player) {
+        // Check for horizontal wins
+        for (int row = 0; row < 3; row++) {
+            if (board[row][0] == player && board[row][1] == player && board[row][2] == player) {
+                return true;
+            }
+        }
 
+        // Check for vertical wins
+        for (int col = 0; col < 3; col++) {
+            if (board[0][col] == player && board[1][col] == player && board[2][col] == player) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
+
 
 
 
