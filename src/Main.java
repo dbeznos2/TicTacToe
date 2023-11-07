@@ -7,6 +7,7 @@ public class Main { // Define a class named "TicTacToe."
         char currentPlayer = 'X';
         initializeBoard(board);
         printBoard(board);
+        int moves = 0;
 
     }
 
@@ -17,6 +18,7 @@ public class Main { // Define a class named "TicTacToe."
             }
         }
     }
+
     public static void printBoard(char[][] board) {
         System.out.println("-------------");
         for (int i = 0; i < 3; i++) {
@@ -27,6 +29,29 @@ public class Main { // Define a class named "TicTacToe."
             System.out.println("\n-------------");
         }
     }
+    public static int getPlayerMove(char[][] board, char currentPlayer) {
+        Scanner scanner = new Scanner(System.in);
+        int move;
+
+        while (true) {
+            System.out.print("Player " + currentPlayer + ", enter your move (1-9): ");
+            move = scanner.nextInt();
+            if (move >= 1 && move <= 9) {
+                int row = (move - 1) / 3;
+                int col = (move - 1) % 3;
+                if (board[row][col] == ' ') {
+                    break;
+                } else {
+                    System.out.println("Invalid move. Please choose an empty cell.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a number between 1 and 9.");
+            }
+        }
+
+        return move;
+    }
+
 
 }
 
