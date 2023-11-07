@@ -22,6 +22,10 @@ public class Main { // Define a class named "TicTacToe."
                     System.out.println("Player " + currentPlayer + " wins!");
                     break;
                 }
+                moves++;
+                currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+            } else {
+                System.out.println("Invalid move. Please choose an empty cell.");
             }
         }
     }
