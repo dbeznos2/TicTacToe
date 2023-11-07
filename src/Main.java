@@ -9,7 +9,21 @@ public class Main { // Define a class named "TicTacToe."
         printBoard(board);
         int moves = 0;
 
+        while (moves < 9) {
+            int move = getPlayerMove(board, currentPlayer);
+            int row = (move - 1) / 3;
+            int col = (move - 1) % 3;
 
+            if (board[row][col] == ' ') {
+                board[row][col] = currentPlayer;
+                printBoard(board);
+
+                if (checkWin(board, currentPlayer)) {
+                    System.out.println("Player " + currentPlayer + " wins!");
+                    break;
+                }
+            }
+        }
     }
 
     public static void initializeBoard(char[][] board) {
@@ -76,7 +90,6 @@ public class Main { // Define a class named "TicTacToe."
         if (board[0][2] == player && board[1][1] == player && board[2][0] == player) {
             return true; // Diagonal win (top-right to bottom-left)
         }
-
         return false; // No win
     }
 }
