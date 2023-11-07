@@ -28,6 +28,9 @@ public class Main { // Define a class named "TicTacToe."
                 System.out.println("Invalid move. Please choose an empty cell.");
             }
         }
+        if (moves == 9) {
+            System.out.println("It's a draw!");
+        }
     }
 
     public static void initializeBoard(char[][] board) {
